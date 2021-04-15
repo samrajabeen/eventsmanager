@@ -14,8 +14,8 @@ Signup details [id, full name, email, phone number, password, member type, refer
 - 	Compare referrer to db of names must match (change case and try match)
 -	Member type hidden status (allowing for admin status change in db) default member
 Allow admin to create/delete event for date (moment.js?)
--	Create title, number of available signup
-<br>
+-	Create title, number of available signup<br>
+
 
 **Additional features** <br>
 Link/login via fb profile <br>
