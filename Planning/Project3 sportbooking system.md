@@ -20,6 +20,7 @@ Allow admin to create/delete event for date (moment.js?)
 **Additional features** 
 -	Link/login via fb profile
 -	Group message for payment via email/phone
+-   PaymentAPI option upon booking
 
 **Min req** 
 -	Login/authentication works
