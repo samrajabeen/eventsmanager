@@ -2,7 +2,6 @@ const express = require ("express");
 const app = express();
 var session = require('express-session');
 var MemoryStore = require('memorystore')(session)
-
 var passport = require('passport');
 
 

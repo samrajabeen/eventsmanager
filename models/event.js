@@ -3,14 +3,20 @@ var mongoose = require('mongoose');
 // Event Schema
 var EventSchema = mongoose.Schema({
     eventName: {
-        type: String,
-    },
-    eventTime: {
         type: String
+    },
+    eventStartTime: {
+        type: Date
+    },
+    eventEndTime: {
+        type: Date
     },
     eventDate: {
-        type: String
-    }    
+        type: Date
+    },
+    attending: [{
+        
+    }]    
 });
 
 var Event = module.exports = mongoose.model('Event', EventSchema);
