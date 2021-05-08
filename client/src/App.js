@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
 import Home from "./pages/Home";
@@ -9,12 +9,18 @@ import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 import "./App.css";
 
+
+
+
 function App() {
+  
+  const [isLoggedIn, setLogin] = useState(false);
+  
   return (<Router>
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>RemoteStack</Link>
+          <div className="navbar-brand" to={"/sign-in"}>(user.name)</div>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -32,7 +38,7 @@ function App() {
         <div className="inner">
           <Switch>
             <Route exact path='/' >
-              {isLoggedIn ? <Home /> : 
+              {isLoggedIn ? <Home/> : 
               <Redirect to="/sign-in"/> }
             </Route>
             <Route path="/sign-in" component={Login} />

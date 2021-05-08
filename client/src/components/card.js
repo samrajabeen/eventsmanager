@@ -13,7 +13,6 @@ function EventCardRender(props) {
   return (
   <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src= {getCardImage()} />
-    <Card.ImgOverlay>
     <Card.Header>Header</Card.Header>
     <Card.Body>
       <Card.Title>Card Title </Card.Title>
@@ -22,7 +21,6 @@ function EventCardRender(props) {
         of the card's content.
       </Card.Text>
     </Card.Body>
-    </Card.ImgOverlay>
   </Card>
   )
 };
