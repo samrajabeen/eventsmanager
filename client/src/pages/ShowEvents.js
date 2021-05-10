@@ -2,13 +2,15 @@ import React from "react";
 import {EventCardRender} from "../components/card";
 
 
-class Events extends React.Component {
+class ShowEvents extends React.Component {
 
 render() {
     return (
+        <>
     <EventCardRender />
+    </>
     );
 }
 }
 
-export default Events;
+export default ShowEvents;

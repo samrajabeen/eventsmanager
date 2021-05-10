@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const passport = require("passport")
 var LocalStrategy = require('passport-local').Strategy;
-const { User } = require("../models")
+const { User, Event } = require("../models")
 
 
 passport.use(new LocalStrategy(
@@ -39,8 +39,8 @@ router.post('/api/register', function (req, res) {
   var newUser = new User({
     name: req.body.name,
     email: req.body.email,
-    username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
+    username: req.body.username
   });
 
   User.createUser(newUser, function (err, user) {
@@ -55,9 +55,16 @@ router.post('/api/register', function (req, res) {
 router.post('/api/login',
   passport.authenticate('local'),
   function (req, res) {
-    res.send(req.user);
+    console.log("user",req.user)
+    res.json(req.user)
   }
 );
+
+router.get("/api/allusers", function (req, res) {
+  User.find().then(function(results){
+    res.json(results)
+  })
+})
 
 // Endpoint to get current user
 router.get('/api/user', function (req, res) {
@@ -71,6 +78,28 @@ router.get('/api/logout', function (req, res) {
   res.send(null)
 });
 
+// Create Event
+router.post('/api/newEvent', function (req, res) {
+  var newEvent = new Event({
+    eventName: req.body.eventName,
+    eventStartTime: req.body.eventStartTime,
+    eventEndTime: req.body.eventEndTime,
+    eventDate: req.body.eventDate
+  });
+
+  Event.createEvent(newEvent, function (err, event) {
+    if (err) throw err;
+    res.send(event).end()
+  });
+
+});
+
+// Endpoint to get current event
+router.get("/api/allevents", function (req, res) {
+  Event.find().then(function(results){
+    res.json(results)
+  })
+})
 
 
 module.exports = router

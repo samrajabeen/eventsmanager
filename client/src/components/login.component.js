@@ -1,26 +1,43 @@
 import React, { Component } from "react";
+import Api from "../utils/api";
 
 export default class Login extends Component {
+    state = {
+        username: "",
+        password: ""
+    }
+    handleInputChange = e => {
+        const {name, value} = e.target
+        this.setState({[name]: value}) 
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const userData = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        Api.signIn(userData).then(res => {
+            console.log(res)
+            window.location.href="/home"
+        })
+    }
     render() {
         return (
-            <form>
+            <form  >
 
                 <h3>Log in</h3>
 
                 <div className="form-group">
-                    <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <label>Username</label>
+                    <input type="username" className="form-control" placeholder="Enter username" name="username" value={this.state.email} onChange = {this.handleInputChange}/>
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" name="password"  value={this.state.password} onChange = {this.handleInputChange}/>
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
+                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={this.handleSubmit}>Sign in</button>
             </form>
         );
     }
