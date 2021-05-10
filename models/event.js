@@ -6,17 +6,17 @@ var EventSchema = mongoose.Schema({
         type: String
     },
     eventStartTime: {
-        type: Date
+        type: String
     },
     eventEndTime: {
-        type: Date
+        type: String
     },
     eventDate: {
-        type: Date
+        type: String
     },
     attending: [{
-        
-    }]    
+
+    }]
 });
 
 var Event = module.exports = mongoose.model('Event', EventSchema);

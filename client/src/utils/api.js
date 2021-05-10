@@ -15,6 +15,9 @@ export default {
     signUp(userData){
         return axios.post("api/register", userData)
     },
+    signOut(){
+        return axios.get("api/logout")
+    },
     eventCreate(eventData){
         return axios.post("api/newEvent", eventData)
     }

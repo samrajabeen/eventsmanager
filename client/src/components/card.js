@@ -38,8 +38,6 @@ export function EventCardRender(props) {
             </Card>
           )
         })
-
-
       }
     </>
   )
@@ -61,7 +59,7 @@ export function ProfileCardRender(props) {
     <>
       {User.map(user => {
         return (
-            <Card style={{ width: '22rem' }}>
+          <Card style={{ width: '22rem' }}>
             <Card.Img variant="top" src={profileImage} />
             <Card.Body>
               <form>
@@ -70,7 +68,7 @@ export function ProfileCardRender(props) {
                   <input type="text" class="form-control" id="inlineFormInputGroupUsername">
                   </input>
                 </div>
-                
+
                 <div class="input-group">
                   <div class="input-group-text">Username: {user.username}</div>
                   <input type="text" class="form-control" id="inlineFormInputGroupUsername">
